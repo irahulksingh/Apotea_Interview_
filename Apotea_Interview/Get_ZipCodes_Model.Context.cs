@@ -41,20 +41,20 @@ namespace Apotea_Interview
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("FindZipCodes", startDateParameter, endDateParameter);
         }
-    
+
         public virtual ObjectResult<Order> Func_GetZipCodes(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
         {
             var startDateParameter = startDate.HasValue ?
                 new ObjectParameter("startDate", startDate) :
                 new ObjectParameter("startDate", typeof(System.DateTime));
-    
+
             var endDateParameter = endDate.HasValue ?
                 new ObjectParameter("EndDate", endDate) :
                 new ObjectParameter("EndDate", typeof(System.DateTime));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Order>("Func_GetZipCodes", startDateParameter, endDateParameter);
         }
-    
+
         public virtual ObjectResult<Order> Func_GetZipCodes(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, MergeOption mergeOption)
         {
             var startDateParameter = startDate.HasValue ?
