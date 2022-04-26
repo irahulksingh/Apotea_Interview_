@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Apotea_Interview.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "GetZipCodes", FormMethod.Post))
+{
+
+    <span>Start Date</span>
+    <Input type="datetime" name="StartDtae" />
+    <span>End Date</span>
+    <Input type="datetime" name="EndDate" />
+
+    <input type="submit" value="Get ZipCodes" />
+
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipping_MethodId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip_Code)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipping_MethodId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zip_Code)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderNumber }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderNumber })
+            </td>*@
+        </tr>
+    }
+
+</table>
